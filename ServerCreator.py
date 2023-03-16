@@ -19,6 +19,8 @@ installer = "apt-get -y install openjdk-17-jdk openjdk-17-jre"
 os.system(installer)
 ServerDownloader = "mkdir server ; cd server ; curl https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/448/downloads/paper-1.19.3-448.jar > server.jar"
 os.system(ServerDownloader)
+eulaaccepter = "echo "eula = true" > eula.txt"
+os.system(eulaaccepter)
 startserver = "sudo screen java -Xmx1500MB -jar server.jar"
 os.system(startserver)
 admin = "op " + admin
