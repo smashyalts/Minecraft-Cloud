@@ -1,13 +1,13 @@
 from hcloud import Client
 import os
 import time
-import sys
 from hcloud.server_types.domain import ServerType
 from hcloud.images.domain import Image
 print("Welcome to the one line minecraft server creator on hetzner cloud! (make sure u have enough credits on your account)")
 eula = input("Do u Accept Minecraft's EULA? (yes/no): ")
 if not eula=="yes":
-    sys.exit("You need to accept EULA to continue")
+    print("To continute you need to accept EULA")
+    quit()
 else:
     token2 = input("Input ur API Token here: ")
     client = Client(token=token2)
