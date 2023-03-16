@@ -5,10 +5,9 @@ from hcloud.server_types.domain import ServerType
 from hcloud.images.domain import Image
 print("Welcome to the one line minecraft server creator on hetzner cloud! (make sure u have enough credits on your account)")
 eula = input("Do u Accept Minecraft's EULA? (yes/no): ")
-if eula != yes:
+if not eula==yes:
     os._exit("You need to accept EULA to continue")
 else:
-    # code to execute if condition is True
     token2 = input("Input ur API Token here: ")
     client = Client(token=token2)
     response = client.servers.create(name="minecraft", server_type=ServerType(name="cpx11"), image=Image(name="ubuntu-20.04"))
