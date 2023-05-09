@@ -29,6 +29,7 @@ else:
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.MissingHostKeyPolicy())
     ssh.connect(public_ip, username='root', pkey=key)
-    command = "sudo apt-get update ; sudo apt-get -y install openjdk-17-jre-headless screen ; mkdir server ; cd server ; curl https://api.papermc.io/v2/projects/paper/versions/1.>    ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command(command)
+    command = "sudo apt-get update ; sudo apt-get -y install openjdk-17-jre-headless screen ; mkdir server ; cd server ; curl https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/448/downloads/paper-1.19.3-448.jar > server.jar ; cd server ; echo eula = true > eula.txt ; sudo screen java -Xmx1G -jar server.jar ; op {}".format(adminuser)
+    ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command(command)
     time.sleep(25)
     print("Server has been setup!")
